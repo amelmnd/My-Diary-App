@@ -1,50 +1,138 @@
-# Welcome to your Expo app 👋
+# Diary App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Diary App est une application mobile développée dans le cadre des modules 04 et 05 de la Piscine Mobile 42.
+Elle permet de créer et gérer des entrées personnelles sécurisées avec authentification, base de données temps réel et agenda interactif.
 
-## Get started
+---
 
-1. Install dependencies
+## Description
 
-   ```bash
-   npm install
-   ```
+L’application repose sur deux grands axes issus des exercices des modules :
 
-2. Start the app
+### Module 04 — Auth & Database
 
-   ```bash
-   npx expo start
-   ```
+- Authentification utilisateur avec Google et GitHub
+- Gestion des sessions utilisateur
+- Création, lecture et suppression d’entrées
+- Stockage des données avec Firebase Firestore
+- Mise à jour dynamique des données
 
-In the output, you'll find options to open the app in a
+### Module 05 — Manage Data & Display
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- Page Profile avec statistiques utilisateur
+- Affichage des dernières entrées
+- Répartition des émotions utilisées
+- Agenda interactif avec calendrier
+- Consultation des entrées par date
+- Mise à jour temps réel des données
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+---
 
-## Get a fresh project
+## Stack technique
 
-When you're ready, run:
+- **Langage** : TypeScript
+- **Framework mobile** : React Native
+- **Environnement** : Expo
+- **Authentification** :
+  - Firebase Auth
+  - Google Auth
+  - GitHub Auth
+
+- **Base de données** :
+  - Firebase Firestore
+
+- **Navigation** :
+  - Expo Router / React Navigation
+
+- **Styling** : React Native StyleSheet
+
+---
+
+## Structure du projet
 
 ```bash
-npm run reset-project
+diaryapp/
+├── app/
+│   ├── components/                  # Composants réutilisables
+│   │   ├── EntryCard.tsx
+│   │   ├── LoginButton.tsx
+│   │   ├── EmotionStats.tsx
+│   │   ├── CalendarView.tsx
+│   │   └── ModalEntry.tsx
+│   │
+│   ├── screens/                     # Écrans principaux
+│   │   ├── LoginScreen.tsx
+│   │   ├── ProfileScreen.tsx
+│   │   └── AgendaScreen.tsx
+│   │
+│   ├── services/                    # Firebase / Auth / DB
+│   │   ├── firebase.ts
+│   │   ├── auth.ts
+│   │   └── firestore.ts
+│   │
+│   ├── hooks/
+│   │   └── useDiaryEntries.ts
+│   │
+│   └── types/
+│       └── diary.ts
+│
+├── assets/
+├── readmeImg/
+└── README.md
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## Installation
 
-To learn more about developing your project with Expo, look at the following resources:
+### 1. Cloner le projet
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+git clone git@github.com:USERNAME/diary-app.git
+cd diary-app
+```
 
-## Join the community
+### 2. Installer les dépendances
 
-Join our community of developers creating universal apps.
+```bash
+npm install
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 3. Configurer Firebase
+
+Créer un fichier `.env`
+
+```env
+EXPO_PUBLIC_FIREBASE_API_KEY=YOUR_API_KEY
+EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=YOUR_AUTH_DOMAIN
+EXPO_PUBLIC_FIREBASE_PROJECT_ID=YOUR_PROJECT_ID
+EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=YOUR_STORAGE_BUCKET
+EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=YOUR_SENDER_ID
+EXPO_PUBLIC_FIREBASE_APP_ID=YOUR_APP_ID
+```
+
+### 4. Lancer l'application
+
+```bash
+npm start
+```
+
+---
+
+## Aperçu du rendu
+
+<div align="center">
+
+  <img src="./readmeImg/LoadingApp.png" width="30%">
+  <img src="./readmeImg/Profile.png" width="30%">
+  <img src="./readmeImg/AddNote.png" width="30%">
+  <img src="./readmeImg/Calendar.png" width="30%">
+  <img src="./readmeImg/DetailNote.png" width="30%">
+
+</div>
+
+---
+
+## Licence
+
+Projet réalisé dans le cadre de la Piscine Mobile 42.
